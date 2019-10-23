@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import SessionController from './app/controllers/SessionController';
+import StudentController from './app/controllers/StudentController';
 
 const routes = new Router();
 
@@ -8,6 +9,6 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 
 // STUDENT
-routes.get('/students');
+routes.get('/students', StudentController.index);
 
 export default routes;
