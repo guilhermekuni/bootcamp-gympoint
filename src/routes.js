@@ -10,5 +10,6 @@ routes.post('/sessions', SessionController.store);
 
 // STUDENT
 routes.get('/students', StudentController.index);
+routes.post('/students', StudentController.store);
 
 export default routes;
