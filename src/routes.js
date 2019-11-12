@@ -21,5 +21,7 @@ routes.put('/students/:id', StudentController.update);
 // MEMBERSHIP
 routes.get('/membership', MembershipController.index);
 routes.post('/membership', MembershipController.store);
+routes.put('/membership/:id', MembershipController.update);
+routes.delete('/membership/:id', MembershipController.delete);
 
 export default routes;

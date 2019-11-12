@@ -31,6 +31,38 @@ class MembershipController {
 
     return res.json(membership);
   }
+
+  async update(req, res) {
+    const schema = Yup.object().shape({
+      title: Yup.string().required(),
+      duration: Yup.number().required(),
+      price: Yup.number().required(),
+    });
+
+    const validRequest = await schema.isValid(req.body);
+
+    if (!validRequest) {
+      return res.status(400).json({ error: 'Validation fails' });
+    }
+
+    const { id } = req.params;
+    const membership = Membership.findOne({ where: { id } });
+
+    if (!membership) {
+      return res.status(400).json({ error: 'Membership does not exists' });
+    }
+
+    await Membership.update(req.body, { where: { id } });
+
+    return res.json({ message: 'Membership was updated!' });
+  }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    await Membership.destroy({ where: { id } });
+
+    return res.json({ message: 'Membership was deleted!' });
+  }
 }
 
 export default new MembershipController();
