@@ -20,5 +20,6 @@ routes.put('/students/:id', StudentController.update);
 
 // MEMBERSHIP
 routes.get('/membership', MembershipController.index);
+routes.post('/membership', MembershipController.store);
 
 export default routes;
