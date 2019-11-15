@@ -28,5 +28,6 @@ routes.delete('/membership/:id', MembershipController.delete);
 // REGISTRATION
 routes.get('/registration', RegistrationController.index);
 routes.post('/registration', RegistrationController.store);
+routes.put('/registration/:id', RegistrationController.update);
 
 export default routes;
