@@ -4,7 +4,15 @@ import Membership from '../models/Membership';
 
 class MembershipController {
   async index(req, res) {
-    const memberships = await Membership.findAll();
+    const { page = 1 } = req.query;
+
+    const memberships = await Membership.findAll({
+      attributes: ['id', 'title', 'duration', 'price'],
+      order: ['id'],
+      limit: 20,
+      offset: (page - 1) * 20,
+    });
+
     return res.json(memberships);
   }
 
