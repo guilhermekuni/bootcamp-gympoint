@@ -3,6 +3,7 @@ import { parseISO, addMonths } from 'date-fns';
 
 import Registration from '../models/Registration';
 import Membership from '../models/Membership';
+import Student from '../models/Student';
 
 class RegistrationController {
   async index(req, res) {
@@ -13,6 +14,18 @@ class RegistrationController {
       order: ['start_date'],
       limit: 20,
       offset: (page - 1) * 20,
+      include: [
+        {
+          model: Membership,
+          as: 'membership',
+          attributes: ['id', 'title', 'duration', 'price'],
+        },
+        {
+          model: Student,
+          as: 'student',
+          attributes: ['id', 'name', 'email', 'age'],
+        },
+      ],
     });
 
     return res.json(registrations);
