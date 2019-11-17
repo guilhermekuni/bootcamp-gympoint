@@ -52,7 +52,7 @@ class RegistrationController {
 
     if (!membership) {
       return res
-        .status(401)
+        .status(400)
         .json({ error: 'The provided membership does not exists' });
     }
 
@@ -97,7 +97,7 @@ class RegistrationController {
 
     if (!membership) {
       return res
-        .status(401)
+        .status(400)
         .json({ error: 'The provided membership does not exists' });
     }
 
