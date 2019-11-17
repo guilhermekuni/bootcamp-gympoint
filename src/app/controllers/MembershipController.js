@@ -67,6 +67,13 @@ class MembershipController {
 
   async delete(req, res) {
     const { id } = req.params;
+
+    const membership = await Membership.findByPk(id);
+
+    if (!membership) {
+      return res.status(400).json({ error: 'Membership does not exists' });
+    }
+
     await Membership.destroy({ where: { id } });
 
     return res.json({ message: 'Membership was deleted!' });
