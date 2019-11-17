@@ -115,6 +115,13 @@ class RegistrationController {
 
     return res.json(updatedRegistration);
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    await Registration.destroy({ where: { id } });
+
+    return res.json({ message: 'Registration was deleted!' });
+  }
 }
 
 export default new RegistrationController();

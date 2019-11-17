@@ -25,14 +25,15 @@ routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
 
 // MEMBERSHIP
-routes.get('/membership', MembershipController.index);
-routes.post('/membership', MembershipController.store);
-routes.put('/membership/:id', MembershipController.update);
-routes.delete('/membership/:id', MembershipController.delete);
+routes.get('/memberships', MembershipController.index);
+routes.post('/memberships', MembershipController.store);
+routes.put('/memberships/:id', MembershipController.update);
+routes.delete('/memberships/:id', MembershipController.delete);
 
 // REGISTRATION
-routes.get('/registration', RegistrationController.index);
-routes.post('/registration', RegistrationController.store);
-routes.put('/registration/:id', RegistrationController.update);
+routes.get('/registrations', RegistrationController.index);
+routes.post('/registrations', RegistrationController.store);
+routes.put('/registrations/:id', RegistrationController.update);
+routes.delete('/registrations/:id', RegistrationController.delete);
 
 export default routes;
