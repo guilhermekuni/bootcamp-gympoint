@@ -8,6 +8,7 @@ import CheckinController from './app/controllers/CheckinController';
 import HelpOrderController from './app/controllers/HelpOrderController';
 
 import authMiddleware from './app/middlewares/auth';
+import AnswerController from './app/controllers/AnswerController';
 
 const routes = new Router();
 
@@ -15,7 +16,7 @@ const routes = new Router();
 routes.get('/students/:studentId/checkins', CheckinController.index);
 routes.post('/students/:studentId/checkins', CheckinController.store);
 
-// HELP ORDERS
+// HELP ORDER
 routes.get('/students/:studentId/help-orders', HelpOrderController.index);
 routes.post('/students/:studentId/help-orders', HelpOrderController.store);
 
@@ -29,8 +30,8 @@ routes.get('/students', StudentController.index);
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
 
-// ADMIN HELP ORDERS
-// routes.post('/help-orders/:id/answer');
+// ANSWER
+routes.post('/help-orders/:id/answer', AnswerController.store);
 
 // MEMBERSHIP
 routes.get('/memberships', MembershipController.index);
