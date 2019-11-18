@@ -23,6 +23,25 @@ class HelpOrderController {
 
     return res.json(helpOrders);
   }
+
+  async store(req, res) {
+    const { studentId } = req.params;
+
+    const student = await Student.findByPk(studentId);
+
+    if (!student) {
+      return res.status(400).json({ error: 'Student does not exists' });
+    }
+
+    const { question } = req.body;
+
+    const helpOrder = await HelpOrder.create({
+      student_id: studentId,
+      question,
+    });
+
+    return res.json(helpOrder);
+  }
 }
 
 export default new HelpOrderController();

@@ -15,8 +15,9 @@ const routes = new Router();
 routes.get('/students/:studentId/checkins', CheckinController.index);
 routes.post('/students/:studentId/checkins', CheckinController.store);
 
-// STUDENT HELP ORDERS
+// HELP ORDERS
 routes.get('/students/:studentId/help-orders', HelpOrderController.index);
+routes.post('/students/:studentId/help-orders', HelpOrderController.store);
 
 // SESSION
 routes.post('/sessions', SessionController.store);
