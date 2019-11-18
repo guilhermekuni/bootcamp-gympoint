@@ -6,9 +6,11 @@ import Student from '../models/Student';
 
 class CheckinController {
   async index(req, res) {
+    const { studentId } = req.params;
     const { page = 1 } = req.query;
 
     const checkins = await Checkin.findAll({
+      where: { student_id: studentId },
       attributes: ['id', 'created_at'],
       order: ['created_at'],
       limit: 20,
@@ -26,8 +28,8 @@ class CheckinController {
   }
 
   async store(req, res) {
-    const { id } = req.params;
-    const student = await Student.findOne({ where: { id } });
+    const { studentId } = req.params;
+    const student = await Student.findOne({ where: { id: studentId } });
 
     if (!student) {
       return res.status(400).json({ error: 'Student does not exists' });
@@ -38,6 +40,7 @@ class CheckinController {
 
     const lastWeekCheckins = await Checkin.findAll({
       where: {
+        student_id: studentId,
         created_at: {
           [Op.between]: [startOfDay(dateInitialRange), endOfDay(dateNow)],
         },
@@ -50,7 +53,7 @@ class CheckinController {
       });
     }
 
-    const checkin = await Checkin.create({ student_id: id });
+    const checkin = await Checkin.create({ student_id: studentId });
 
     return res.json(checkin);
   }

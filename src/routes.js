@@ -5,14 +5,18 @@ import StudentController from './app/controllers/StudentController';
 import MembershipController from './app/controllers/MembershipController';
 import RegistrationController from './app/controllers/RegistrationController';
 import CheckinController from './app/controllers/CheckinController';
+import HelpOrderController from './app/controllers/HelpOrderController';
 
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
 // CHECKIN
-routes.get('/students/:id/checkins', CheckinController.index);
-routes.post('/students/:id/checkins', CheckinController.store);
+routes.get('/students/:studentId/checkins', CheckinController.index);
+routes.post('/students/:studentId/checkins', CheckinController.store);
+
+// STUDENT HELP ORDERS
+routes.get('/students/:studentId/help-orders', HelpOrderController.index);
 
 // SESSION
 routes.post('/sessions', SessionController.store);
@@ -23,6 +27,9 @@ routes.use(authMiddleware);
 routes.get('/students', StudentController.index);
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
+
+// ADMIN HELP ORDERS
+// routes.post('/help-orders/:id/answer');
 
 // MEMBERSHIP
 routes.get('/memberships', MembershipController.index);
