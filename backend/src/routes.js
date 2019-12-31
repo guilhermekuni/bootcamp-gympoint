@@ -5,6 +5,7 @@ import StudentController from './app/controllers/StudentController';
 import MembershipController from './app/controllers/MembershipController';
 import RegistrationController from './app/controllers/RegistrationController';
 import CheckinController from './app/controllers/CheckinController';
+import StudentHelpOrderController from './app/controllers/StudentHelpOrderController';
 import HelpOrderController from './app/controllers/HelpOrderController';
 
 import authMiddleware from './app/middlewares/auth';
@@ -16,19 +17,29 @@ const routes = new Router();
 routes.get('/students/:studentId/checkins', CheckinController.index);
 routes.post('/students/:studentId/checkins', CheckinController.store);
 
-// HELP ORDER
-routes.get('/students/:studentId/help-orders', HelpOrderController.index);
-routes.post('/students/:studentId/help-orders', HelpOrderController.store);
+// STUDENT  HELP ORDER
+routes.get(
+  '/students/:studentId/help-orders',
+  StudentHelpOrderController.index
+);
+routes.post(
+  '/students/:studentId/help-orders',
+  StudentHelpOrderController.store
+);
 
 // SESSION
 routes.post('/sessions', SessionController.store);
 
+/* ==== ADMIN ENDPOINTS ==== */
 routes.use(authMiddleware);
 
 // STUDENT
 routes.get('/students', StudentController.index);
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
+
+// HELP ORDERS
+routes.get('/help-orders', HelpOrderController.index);
 
 // ANSWER
 routes.post('/help-orders/:id/answer', AnswerController.store);
