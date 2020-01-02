@@ -1,5 +1,7 @@
 import HelpOrder from '../models/HelpOrder';
 
+import Mail from '../../lib/Mail';
+
 class AnswerController {
   async store(req, res) {
     const { id } = req.params;
@@ -14,6 +16,16 @@ class AnswerController {
     const request = { ...helpOrder, answer, answer_at: new Date() };
 
     await HelpOrder.update(request, { where: { id } });
+
+    await Mail.sendMail({
+      to: `${'TESTE NAME'} <${'teste@email.com'}>`,
+      subject: 'Agendamento cancelado',
+      template: 'answer',
+      context: {
+        provider: 'teste provider',
+        user: 'teste user',
+      },
+    });
 
     return res.json({ message: 'Help Order was ansewered' });
   }
