@@ -25,7 +25,7 @@ export function* signIn({ payload }) {
 
     console.tron.log('sagas success', response.data);
 
-    // history.push('/dashboard');
+    history.push('/student');
   } catch (err) {
     console.tron.log(err);
     toast.error('Falha na autenticação, verifique seus dados');

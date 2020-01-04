@@ -6,5 +6,5 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: blue;
+  background: #f5f5f5;
 `;

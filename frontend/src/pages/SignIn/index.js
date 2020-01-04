@@ -7,7 +7,7 @@ import StyledInput from '~/components/StyledInput';
 
 import { signInRequest } from '~/store/modules/auth/actions';
 
-import logo from '~/assets/images/logo.png';
+import logo from '~/assets/images/logo.svg';
 
 import { Container } from './styles';
 

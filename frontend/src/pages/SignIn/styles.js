@@ -11,7 +11,7 @@ export const Container = styled.div`
   justify-content: center;
 
   img {
-    height: 100px;
+    height: 110px;
   }
 
   form {
@@ -21,7 +21,10 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 100%;
     padding: 10% 0 0 0;
-    margin-top: 5%;
+
+    label {
+      margin-top: 8px;
+    }
 
     button {
       height: 44px;
