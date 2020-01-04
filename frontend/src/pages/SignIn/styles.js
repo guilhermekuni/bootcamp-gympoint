@@ -1,15 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #ee4d64;
-`;
-
-export const Card = styled.div`
   background: #fff;
   height: 450px;
   width: 350px;

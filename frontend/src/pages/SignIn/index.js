@@ -6,7 +6,7 @@ import StyledInput from '~/components/StyledInput';
 
 import logo from '~/assets/images/logo.png';
 
-import { Container, Card } from './styles';
+import { Container } from './styles';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -22,14 +22,12 @@ export default function SignIn() {
 
   return (
     <Container>
-      <Card>
-        <img src={logo} alt=""/>
-        <Form schema={schema} onSubmit={handleSubmit}>
-          <StyledInput name="email" type="email" label="seu e-mail" placeholder="exemplo@email.com" />
-          <StyledInput name="password" type="password" label="sua senha" placeholder="**********" />
-          <button>Entrar no sistema</button>
-        </Form>
-      </Card>
+      <img src={logo} alt="" />
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <StyledInput name="email" type="email" label="seu e-mail" placeholder="exemplo@email.com" />
+        <StyledInput name="password" type="password" label="sua senha" placeholder="**********" />
+        <button>Entrar no sistema</button>
+      </Form>
     </Container>
   );
 }
