@@ -3,11 +3,11 @@ import { Input } from '@rocketseat/unform';
 
 import { Container } from './styles';
 
-export default function StyledInput({ name, label, placeholder }) {
+export default function StyledInput({ label, name, ...rest }) {
   return (
     <Container>
       <label htmlFor={name}>{label}</label>
-      <Input name={name} placeholder={placeholder} />
+      <Input name={name} {...rest} />
     </Container>
   );
 }

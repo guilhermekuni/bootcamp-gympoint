@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 75px;
+  max-height: 100px;
   width: 80%;
   display: flex;
   flex-direction: column;
 
+  span {
+    color: #fb6f91;
+    align-self: flex-start;
+    margin: 0 0 10px;
+    font-weight: bold;
+  }
+
   label {
-    height: 20%;
-    margin-bottom: 2%;
+    height: 25px;
+    margin-bottom: 5px;
     color: #000;
     text-transform: uppercase;
     font-weight: bold;
@@ -17,7 +24,7 @@ export const Container = styled.div`
   input {
     border: 1px solid #cfcfcf;
     border-radius: 4px;
-    height: 75%;
+    height: 50px;
     padding: 0 15px;
     color: #000;
     margin: 0 0 10px;

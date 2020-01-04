@@ -29,7 +29,6 @@ export const Card = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 55%;
     padding: 10% 0 0 0;
     margin-top: 5%;
 
@@ -41,6 +40,7 @@ export const Card = styled.div`
       background: #ee4d64;
       color: #fff;
       font-size: 14.44px;
+      margin-top: 5px;
     }
   }
 `;
