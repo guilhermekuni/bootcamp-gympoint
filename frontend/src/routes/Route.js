@@ -13,13 +13,9 @@ export default function RouteWrapper({
 }) {
   const { signed } = store.getState().auth;
 
-  // if (!signed && isPrivate) {
-  //   return <Redirect to="/" />;
-  // }
-
-  // if (signed && !isPrivate) {
-  //   return <Redirect to="/" />
-  // }
+  if (signed) {
+    // return <Redirect to="/student" />
+  }
 
   const Layout = signed ? DefaultLayout : AuthLayout;
 

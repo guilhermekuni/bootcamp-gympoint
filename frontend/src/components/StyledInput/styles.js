@@ -30,7 +30,7 @@ export const Container = styled.div`
     margin: 0 0 10px;
 
     &::placeholder {
-      color: darkgray;
+      color: #ccc;
     }
   }
 `;

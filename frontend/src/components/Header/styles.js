@@ -5,10 +5,12 @@ import { lighten } from 'polished';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  background: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   align-items: center;
   justify-content: space-between;
   padding: 25px;
+  margin: 0 auto;
   height: 60px;
 `;
 
