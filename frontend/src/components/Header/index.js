@@ -24,13 +24,13 @@ export default function Header() {
           <Link to="/student">ALUNOS</Link>
         </nav>
         <nav>
-          <Link to="/dashboard">PLANOS</Link>
+          <Link to="/membership">PLANOS</Link>
         </nav>
         <nav>
-          <Link to="/dashboard">MATRÍCULAS</Link>
+          <Link to="/registration">MATRÍCULAS</Link>
         </nav>
         <nav>
-          <Link to="/dashboard">PEDIDOS DE AUXÍLIO</Link>
+          <Link to="/help-order">PEDIDOS DE AUXÍLIO</Link>
         </nav>
       </NavTabs>
       <Corner>

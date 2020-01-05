@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+
+import { MdAdd, MdSearch } from 'react-icons/md';
+
 import api from '~/services/api';
 
 import StyledList from '~/components/StyledList';
 import StyledListItem from '~/components/StyledListItem';
-
-import { MdAdd, MdSearch } from 'react-icons/md';
 
 import { Container, TopContent, ActionContent, InputBox } from './styles';
 
