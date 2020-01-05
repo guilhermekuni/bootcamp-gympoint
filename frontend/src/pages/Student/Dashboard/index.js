@@ -27,6 +27,10 @@ export default function StudentDashboard() {
     setStudents(response.data);
   }
 
+  function handleFilterChange(filter) {
+    getStudents(1, filter);
+  }
+
   const studentPropertyLabels = ['nome', 'e-mail', 'idade'];
 
   return (
@@ -40,7 +44,7 @@ export default function StudentDashboard() {
           </button>
           <InputBox>
             <span><MdSearch /></span>
-            <input type="text" placeholder="Buscar aluno" />
+            <input type="text" placeholder="Buscar aluno" onChange={(e) => handleFilterChange(e.target.value)} />
           </InputBox>
         </ActionContent>
       </TopContent>
