@@ -4,7 +4,9 @@ import api from '~/services/api';
 import StyledList from '~/components/StyledList';
 import StyledListItem from '~/components/StyledListItem';
 
-import { Container, TopContent, ActionContent } from './styles';
+import { MdAdd, MdSearch } from 'react-icons/md';
+
+import { Container, TopContent, ActionContent, InputBox } from './styles';
 
 export default function StudentDashboard() {
   const [students, setStudents] = useState([]);
@@ -32,8 +34,14 @@ export default function StudentDashboard() {
       <TopContent>
         <h1>Gerenciando alunos</h1>
         <ActionContent>
-          <button>CADASTRAR</button>
-          <input type="text" placeholder="Buscar aluno" />
+          <button>
+            <MdAdd />
+            <span>CADASTRAR</span>
+          </button>
+          <InputBox>
+            <span><MdSearch /></span>
+            <input type="text" placeholder="Buscar aluno" />
+          </InputBox>
         </ActionContent>
       </TopContent>
       <StyledList propertyLabels={studentPropertyLabels}>

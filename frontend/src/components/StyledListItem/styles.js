@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten, darken } from 'polished';
 
 export const Column = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ export const EditButton = styled.button`
   background: none;
   color: #4d85ee;
   margin: 0 12px 0;
+
+  &:hover {
+    color: ${lighten(0.15, '#4d85ee')};
+  }
 `;
 
 export const DeleteButton = styled.button`
@@ -19,4 +24,8 @@ export const DeleteButton = styled.button`
   background: none;
   color: #e04848;
   margin: 0 12px 0;
+
+  &:hover {
+    color: ${lighten(0.15, '#e04848')};
+  }
 `;
