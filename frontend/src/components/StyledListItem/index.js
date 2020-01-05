@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Column } from './styles';
+import { Column, EditButton, DeleteButton } from './styles';
 
 export default function StyledListItem({ id, item }) {
   return (
@@ -12,9 +12,9 @@ export default function StyledListItem({ id, item }) {
           return <Column key={index}>{value}</Column>
         })
       }
-      <Column>
-        <button>editar</button>
-        <button>apagar</button>
+      <Column actionColumn>
+        <EditButton>editar</EditButton>
+        <DeleteButton>apagar</DeleteButton>
       </Column>
     </>
   );
