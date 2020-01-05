@@ -5,6 +5,8 @@ import Registration from '../models/Registration';
 import Membership from '../models/Membership';
 import Student from '../models/Student';
 
+import { PAGINATION_ITEMS_LIMIT } from '../utils/index';
+
 class RegistrationController {
   async index(req, res) {
     const { page = 1 } = req.query;
@@ -12,8 +14,8 @@ class RegistrationController {
     const registrations = await Registration.findAll({
       attributes: ['id', 'start_date', 'end_date', 'price', 'active'],
       order: ['start_date'],
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: PAGINATION_ITEMS_LIMIT,
+      offset: (page - 1) * PAGINATION_ITEMS_LIMIT,
       include: [
         {
           model: Membership,

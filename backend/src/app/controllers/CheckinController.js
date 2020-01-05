@@ -4,6 +4,8 @@ import { Op } from 'sequelize';
 import Checkin from '../models/Checkin';
 import Student from '../models/Student';
 
+import { PAGINATION_ITEMS_LIMIT } from '../utils/index';
+
 class CheckinController {
   async index(req, res) {
     const { studentId } = req.params;
@@ -13,8 +15,8 @@ class CheckinController {
       where: { student_id: studentId },
       attributes: ['id', 'created_at'],
       order: ['created_at'],
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: PAGINATION_ITEMS_LIMIT,
+      offset: (page - 1) * PAGINATION_ITEMS_LIMIT,
       include: [
         {
           model: Student,

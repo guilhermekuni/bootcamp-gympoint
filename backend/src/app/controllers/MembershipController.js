@@ -2,6 +2,8 @@ import * as Yup from 'yup';
 
 import Membership from '../models/Membership';
 
+import { PAGINATION_ITEMS_LIMIT } from '../utils/index';
+
 class MembershipController {
   async index(req, res) {
     const { page = 1 } = req.query;
@@ -9,8 +11,8 @@ class MembershipController {
     const memberships = await Membership.findAll({
       attributes: ['id', 'title', 'duration', 'price'],
       order: ['id'],
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: PAGINATION_ITEMS_LIMIT,
+      offset: (page - 1) * PAGINATION_ITEMS_LIMIT,
     });
 
     return res.json(memberships);

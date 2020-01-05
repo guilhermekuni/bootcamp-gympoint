@@ -1,6 +1,8 @@
 import HelpOrder from '../models/HelpOrder';
 import Student from '../models/Student';
 
+import { PAGINATION_ITEMS_LIMIT } from '../utils/index';
+
 class StudentHelpOrderController {
   async index(req, res) {
     const { studentId } = req.params;
@@ -10,8 +12,8 @@ class StudentHelpOrderController {
       where: { student_id: studentId },
       attributes: ['id', 'question', 'answer', 'answer_at'],
       order: ['created_at'],
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: PAGINATION_ITEMS_LIMIT,
+      offset: (page - 1) * PAGINATION_ITEMS_LIMIT,
       include: [
         {
           model: Student,
