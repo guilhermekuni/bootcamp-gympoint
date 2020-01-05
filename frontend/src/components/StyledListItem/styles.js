@@ -6,6 +6,7 @@ export const Column = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: ${({ actionColumn }) => actionColumn ? 'flex-end' : 'flex-start'};
+  color: #555555;
 `;
 
 export const EditButton = styled.button`
