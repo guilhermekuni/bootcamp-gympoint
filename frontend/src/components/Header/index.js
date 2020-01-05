@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 import logo from '~/assets/images/logo-header.svg';
 
 import { Container, NavTabs, Link, VerticalSeparator, Corner } from './styles';
 
 export default function Header() {
+  const { name } = useSelector(state => state.user);
+
   return (
     <Container>
       <NavTabs>
@@ -26,7 +27,7 @@ export default function Header() {
         </nav>
       </NavTabs>
       <Corner>
-        <strong>Guilherme Kuniyoshi</strong>
+        <strong>{name}</strong>
         <small>sair do sistema</small>
       </Corner>
     </Container>
