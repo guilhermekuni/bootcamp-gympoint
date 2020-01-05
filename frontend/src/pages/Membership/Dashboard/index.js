@@ -13,6 +13,20 @@ export default function MembershipDashboard() {
   const [memberships, setMemberships] = useState([]);
 
   useEffect(() => {
+    async function getMemberships(page = 1) {
+      const response = await api.get('memberships', {
+        params: { page },
+      });
+
+      const formattedResponse = response.data.map(item => ({
+        ...item,
+        duration: formatDuration(item.duration),
+        price: formatPrice(item.price),
+      }));
+
+      setMemberships(formattedResponse);
+    }
+
     getMemberships();
   }, []);
 
@@ -22,20 +36,6 @@ export default function MembershipDashboard() {
 
   function formatPrice(price) {
     return price % 1 === 0 ? `R$ ${price},00` : `R$ ${price.replace('.', ',')}`;
-  }
-
-  async function getMemberships(page = 1) {
-    const response = await api.get('memberships', {
-      params: { page },
-    });
-
-    const formattedResponse = response.data.map(item => ({
-      ...item,
-      duration: formatDuration(item.duration),
-      price: formatPrice(item.price),
-    }));
-
-    setMemberships(formattedResponse);
   }
 
   const membershipPropertyLabels = ['título', 'duração', 'valor p/ mês'];
