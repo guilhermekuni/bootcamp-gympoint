@@ -1,12 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '~/assets/images/logo-header.svg';
+
+import { signOut} from '~/store/modules/auth/actions';
 
 import { Container, NavTabs, Link, VerticalSeparator, Corner } from './styles';
 
 export default function Header() {
+  const dispatch = useDispatch();
   const { name } = useSelector(state => state.user);
+
+  function handleSignOut() {
+    dispatch(signOut());
+  }
 
   return (
     <Container>
@@ -28,7 +35,7 @@ export default function Header() {
       </NavTabs>
       <Corner>
         <strong>{name}</strong>
-        <small>sair do sistema</small>
+        <small onClick={handleSignOut}>sair do sistema</small>
       </Corner>
     </Container>
   );
