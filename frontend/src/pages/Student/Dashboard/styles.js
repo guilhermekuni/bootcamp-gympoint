@@ -15,7 +15,7 @@ export const TopContent = styled.div`
   height: 60px;
 
   h1 {
-    color: #777777;
+    color: #444444;
   }
 `;
 
