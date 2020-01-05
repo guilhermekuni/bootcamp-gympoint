@@ -25,6 +25,7 @@ export const QuestionList = styled.div`
   padding: 40px;
 
   h1 {
+    margin-left: 5px;
     font-size: 18px;
   }
 `;

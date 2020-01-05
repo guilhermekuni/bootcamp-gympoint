@@ -6,6 +6,7 @@ import api from '~/services/api';
 
 import StyledList from '~/components/StyledList';
 import StyledListItem from '~/components/StyledListItem';
+import StyledButton from '~/components/StyledButton';
 
 import { Container, TopContent } from './styles';
 
@@ -44,18 +45,20 @@ export default function MembershipDashboard() {
     <Container>
       <TopContent>
         <h1>Gerenciando planos</h1>
-        <button>
+        <StyledButton largerButton>
           <MdAdd />
           <span>CADASTRAR</span>
-        </button>
+        </StyledButton>
       </TopContent>
       <StyledList propertyLabels={membershipPropertyLabels}>
-        {
-          memberships.map(item => {
-            const { id, title, duration, price } = item;
-            return <StyledListItem key={id} id={id} item={{ title, duration, price }} />
-          })
-        }
+        <>
+          {
+            memberships.map(item => {
+              const { id, title, duration, price } = item;
+              return <StyledListItem key={id} id={id} item={{ title, duration, price }} />
+            })
+          }
+        </>
       </StyledList>
     </Container>
   );

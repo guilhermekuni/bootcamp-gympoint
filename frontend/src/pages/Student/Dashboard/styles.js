@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -25,33 +24,6 @@ export const ActionContent = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 34px;
-    width: 150px;
-    border: 0;
-    border-radius: 4px;
-    background: #ee4d64;
-    color: #fff;
-    font-size: 14.44px;
-
-    svg {
-      color: #fff;
-      font-size: 16px;
-      margin-right: 8px;
-    }
-
-    &:hover {
-      background: ${lighten(0.05, '#ee4d64')};
-    }
-
-    &:active {
-      background: ${darken(0.05, '#ee4d64')};
-    }
-  }
 `;
 
 export const InputBox = styled.div`

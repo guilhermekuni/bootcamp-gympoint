@@ -8,6 +8,7 @@ import api from '~/services/api';
 
 import StyledList from '~/components/StyledList';
 import StyledListItem from '~/components/StyledListItem';
+import StyledButton from '~/components/StyledButton';
 
 import { Container, TopContent } from './styles';
 
@@ -45,18 +46,20 @@ export default function RegistrationDashboard() {
     <Container>
       <TopContent>
         <h1>Gerenciando matrículas</h1>
-        <button>
+        <StyledButton largerButton>
           <MdAdd />
           <span>CADASTRAR</span>
-        </button>
+        </StyledButton>
       </TopContent>
       <StyledList propertyLabels={registrationPropertyLabels}>
-        {
-          registrations.map(item => {
-            const { id, active, studentName, membershipTitle, startDate, endDate } = item;
-            return <StyledListItem key={id} id={id} item={{ studentName, membershipTitle, startDate, endDate, active }} />
-          })
-        }
+        <>
+          {
+            registrations.map(item => {
+              const { id, active, studentName, membershipTitle, startDate, endDate } = item;
+              return <StyledListItem key={id} id={id} item={{ studentName, membershipTitle, startDate, endDate, active }} />
+            })
+          }
+        </>
       </StyledList>
     </Container>
   );

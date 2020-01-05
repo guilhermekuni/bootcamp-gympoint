@@ -8,11 +8,16 @@ import MembershipDashboard from '~/pages/Membership/Dashboard';
 import RegistrationDashboard from '~/pages/Registration/Dashboard';
 import HelpOrderDashboard from '~/pages/HelpOrder/Dashboard';
 
+import StudentForm from '~/pages/Student/Form';
+// import MembershipForm from '~/pages/Membership/Form';
+import RegistrationForm from '~/pages/Registration/Form';
+
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
       <Route path="/student" exact component={StudentDashboard} isPrivate />
+      <Route path="/student/new" exact component={StudentForm} isPrivate />
       <Route path="/membership" exact component={MembershipDashboard} isPrivate />
       <Route path="/registration" exact component={RegistrationDashboard} isPrivate />
       <Route path="/help-order" exact component={HelpOrderDashboard} isPrivate />

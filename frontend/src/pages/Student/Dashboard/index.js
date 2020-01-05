@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd, MdSearch } from 'react-icons/md';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import StyledList from '~/components/StyledList';
 import StyledListItem from '~/components/StyledListItem';
+import StyledButton from '~/components/StyledButton';
 
 import { Container, TopContent, ActionContent, InputBox } from './styles';
 
@@ -24,12 +26,15 @@ export default function StudentDashboard() {
       },
     });
 
-    console.tron.log('students', response);
     setStudents(response.data);
   }
 
   function handleFilterChange(filter) {
     getStudents(1, filter);
+  }
+
+  function handleFormNavigation() {
+    history.push('/student/new');
   }
 
   const studentPropertyLabels = ['nome', 'e-mail', 'idade'];
@@ -39,10 +44,10 @@ export default function StudentDashboard() {
       <TopContent>
         <h1>Gerenciando alunos</h1>
         <ActionContent>
-          <button>
+          <StyledButton onClick={handleFormNavigation} largerButton>
             <MdAdd />
             <span>CADASTRAR</span>
-          </button>
+          </StyledButton>
           <InputBox>
             <span><MdSearch /></span>
             <input type="text" placeholder="Buscar aluno" onChange={(e) => handleFilterChange(e.target.value)} />
@@ -50,12 +55,14 @@ export default function StudentDashboard() {
         </ActionContent>
       </TopContent>
       <StyledList propertyLabels={studentPropertyLabels}>
-        {
-          students.map(item => {
-            const { id, name, email, age } = item;
-            return <StyledListItem key={id} id={id} item={{ name, email, age }} />
-          })
-        }
+        <>
+          {
+            students.map(item => {
+              const { id, name, email, age } = item;
+              return <StyledListItem key={id} id={id} item={{ name, email, age }} />
+            })
+          }
+        </>
       </StyledList>
     </Container>
   );
